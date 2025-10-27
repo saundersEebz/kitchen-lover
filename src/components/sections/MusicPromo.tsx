@@ -15,7 +15,7 @@ export default function MusicPromo() {
         <p className="">DEBUT ALBUM</p>
         <h1 className="text-5xl font-semibold">THE CIRCUS SIDESHOW DREAM</h1>
         <h2 className="italic text-3xl font-[550] opacity-90">
-          OUT 19TH SEPTEMBER
+          OUT NOW
         </h2>
       </div>
 
