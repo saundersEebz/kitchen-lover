@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 import Providers from "@/store/context/Providers";
+import { MenuWrapper } from "@/components";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,7 +33,7 @@ export default function RootLayout({
       <Providers>
         <body
           className={`h-screen w-screen ${geistSans.variable} ${geistMono.variable} ${oswald.className} flex flex-col antialiased`}>
-          {/* <Header /> */}
+          <MenuWrapper />
           {children}
         </body>
       </Providers>

@@ -1,6 +1,7 @@
 export { default as Header } from "./sections/Header";
 export { default as MenuButton } from "./buttons/MenuButton";
 export { default as Menu } from "./structural/Menu";
+export { default as MenuWrapper } from "./structural/MenuWrapper";
 export { default as MusicPromo } from "./sections/MusicPromo";
 export { default as PromoImages } from "./structural/PromoImages";
 export { default as Landing } from "./sections/Landing";
@@ -8,4 +9,4 @@ export { default as ParallaxZoom } from "./animation/ParallaxZoom";
 export { default as UpcomingShows } from "./sections/UpcomingShows";
 export { default as TicketListing } from "./structural/TicketListing";
 export { default as ShopButton } from "./buttons/ShopButton";
-export { default as MusicSingleListing } from "./structural/musicSingleListing";
+export { default as MusicSingleListing } from "./structural/MusicSingleListing";

@@ -30,23 +30,36 @@ export default function PromoImages() {
         <a
           href="https://kitchenlover.bandcamp.com/album/the-circus-sideshow-dream"
           target="_blank"
-          className="font-semibold text-white bg-black rounded-md px-2 py-1">
+          className="font-semibold text-white bg-black rounded-md px-2 py-1"
+        >
           BUY THE ALBUM HERE
         </a>
 
         <p className="text-center font-semibold">STREAM THE ALBUM HERE</p>
 
         <div className="flex gap-3">
-          <a href="https://open.spotify.com" className="cursor-pointer">
+          <a
+            href="https://open.spotify.com/album/2jA2m6rRhYZ4Pqq76fikAj"
+            className="cursor-pointer"
+          >
             <FaSpotify size={30} />
           </a>
-          <a href="https://open.spotify.com" className="cursor-pointer">
+          <a
+            href="https://music.apple.com/us/album/the-circus-sideshow-dream/1843353656"
+            className="cursor-pointer"
+          >
             <SiApplemusic size={30} />
           </a>
-          <a href="https://open.spotify.com" className="cursor-pointer">
+          <a
+            href="https://music.amazon.co.uk/albums/B0FTG343NJ"
+            className="cursor-pointer"
+          >
             <FaAmazon size={30} />
           </a>
-          <a href="https://open.spotify.com" className="cursor-pointer">
+          <a
+            href="https://music.youtube.com/playlist?list=OLAK5uy_kLtvlvrjXIZSNgcm_aDMjMPQt33Miyz6o"
+            className="cursor-pointer"
+          >
             <SiYoutubemusic size={30} />
           </a>
         </div>
