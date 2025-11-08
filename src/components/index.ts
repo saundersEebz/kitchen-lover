@@ -10,3 +10,4 @@ export { default as UpcomingShows } from "./sections/UpcomingShows";
 export { default as TicketListing } from "./structural/TicketListing";
 export { default as ShopButton } from "./buttons/ShopButton";
 export { default as MusicSingleListing } from "./structural/MusicSingleListing";
+export { default as MusicVideoListing } from "./structural/MusicVideoListing";

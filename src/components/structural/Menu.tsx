@@ -91,6 +91,15 @@ export default function Menu() {
           Music
         </Link>
       </div>
+
+      <div
+        className={`w-2/3 py-2 flex justify-between items-center ${
+          pathname === "/video" ? "border-b-3 border-black" : ""
+        }`}>
+        <Link onClick={closeMenu} href="/video">
+          Videos
+        </Link>
+      </div>
     </motion.div>
   );
 }
