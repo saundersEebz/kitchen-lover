@@ -95,7 +95,16 @@ export default function ParallaxZoom() {
               className="element"
             >
               <div className="image-container">
-                <Image src={src} alt="image" fill placeholder="blur" />
+                <Image 
+                  src={src} 
+                  alt="image" 
+                  fill 
+                  placeholder="blur" 
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  sizes="100vw"
+                  quality={85}
+                />
               </div>
             </motion.div>
           );
