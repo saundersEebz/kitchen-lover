@@ -2,16 +2,30 @@
 
 import Image from "next/image";
 
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import pressPics from "@/utils/parallaxImageArr";
 
 export default function ParallaxZoom() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedCount, setLoadedCount] = useState(0);
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
+  // Hide loading screen once first 3 images are loaded
+  useEffect(() => {
+    if (loadedCount >= 3) {
+      const timer = setTimeout(() => setIsLoading(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [loadedCount]);
+
+  const handleImageLoad = () => {
+    setLoadedCount((prev) => prev + 1);
+  };
 
   const scaleValues = [4, 5, 6, 7, 8, 9, 5, 6, 8, 9, 5, 6, 8];
   const scale1 = useTransform(scrollYProgress, [0.1, 0.9], [scaleValues[0], 1]);
@@ -71,7 +85,24 @@ export default function ParallaxZoom() {
   const headerTransforms = [headerTransform1, headerTransform2];
 
   return (
-    <div className="h-[300vh] w-full relative" ref={container}>
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="w-16 h-16 border-4 border-[#f5e85e] border-t-transparent rounded-full"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div className="h-[300vh] w-full relative" ref={container}>
       {headerText.map((text, index) => {
         return (
           <motion.h1
@@ -100,10 +131,11 @@ export default function ParallaxZoom() {
                   alt="image" 
                   fill 
                   placeholder="blur" 
-                  priority={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index < 3}
+                  loading={index < 3 ? "eager" : "lazy"}
                   sizes="100vw"
                   quality={85}
+                  onLoad={index < 3 ? handleImageLoad : undefined}
                 />
               </div>
             </motion.div>
@@ -111,5 +143,6 @@ export default function ParallaxZoom() {
         })}
       </div>
     </div>
+    </>
   );
 }

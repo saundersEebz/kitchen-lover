@@ -21,6 +21,11 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   title: "Kitchen Lover",
   description: "Conceived in the kitchen",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
